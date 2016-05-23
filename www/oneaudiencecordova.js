@@ -5,7 +5,7 @@ function OneAudienceCordova() {
 
 
 OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallback) {
-	cordova.exec(successCallback, this._getErrorCallback(errorCallback, “init”), “OneAudiencePlugin", “init”, [appKey]); 
+	cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudiencePlugin", "init", [appKey]); 
 };
 
 OneAudienceCordova.prototype.eulaAccepted = function(successCallback, errorCallback) {
