@@ -3,13 +3,21 @@ var cordova = require('cordova');
 function OneAudienceCordova() {
 }
 
-
 OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallback) {
-	cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudiencePlugin", "init", [appKey]); 
+	var devicePlatform = device.platfrom;
+	if (devicePlatform === "Android") {
+		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudiencePlugin", "init", [appKey]); 
+	} else if (devicePlatform === "iOS") {
+		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudienceCordova", "init", [appKey]); 
+	}
+	
 };
 
 OneAudienceCordova.prototype.eulaAccepted = function(successCallback, errorCallback) {
-	cordova.exec(successCallback, this._getErrorCallback(errorCallback, "eulaAccepted"), "OneAudiencePlugin", "eulaAccepted", []); 
+	var devicePlatform = device.platfrom;
+	if (devicePlatform === "Android") {
+	cordova.exec(successCallback, this._getErrorCallback(errorCallback, "eulaAccepted"), "OneAudiencePlugin", "eulaAccepted", []);
+	}	
 };
 
 
