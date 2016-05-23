@@ -1,29 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-           id="com.oneaudience.cordova"
-      version="0.1.0">
-    <name>OneAudienceCordova</name>
-    <description>One Audience Cordova Plugin</description>
-    <license>Private</license>
-    <keywords>phonegap,oneaudience</keywords>
-    <js-module src="www/oneaudiencecordova.js" name="OneAudiencePlugin">
-        <clobbers target="window.plugins.oneaudiencecordova"/>
-    </js-module>
-    
-    <!-- android -->
-    <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="OneAudiencePlugin">
-                <param name="android-package" value="com.oneaudience.cordova.OneAudiencePlugin"/>
-            </feature>
-        </config-file>
-		
-		<config-file target="AndroidManifest.xml" parent="/manifest">
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.oneaudience.cordova" 
+	version="0.1.0" 
+	xmlns="http://www.phonegap.com/ns/plugins/1.0">
+	<name>OneAudienceCordova</name>
+	<description>One Audience Cordova Plugin</description>
+	<license>Private</license>
+	<keywords>phonegap,oneaudience</keywords>
+	<js-module name="OneAudiencePlugin" src="www/oneaudiencecordova.js">
+		<clobbers target="window.plugins.oneaudiencecordova" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="OneAudiencePlugin">
+				<param name="android-package" value="com.oneaudience.cordova.OneAudiencePlugin" />
+			</feature>
+		</config-file>
+		<config-file parent="/manifest" target="AndroidManifest.xml">
 			<uses-permission android:name="android.permission.INTERNET" />
 		</config-file>
-		
-        <source-file src="src/android/com/oneaudience/cordova/OneAudiencePlugin.java" target-dir="src/com/oneaudience/cordova" />
-        <source-file src="src/android/libs/OneAudience-sdk-release-1.9.jar" target-dir="libs" />
-     </platform>
+		<source-file src="src/android/com/oneaudience/cordova/OneAudiencePlugin.java" target-dir="src/com/oneaudience/cordova" />
+		<source-file src="src/android/libs/OneAudience-sdk-release-1.9.jar" target-dir="libs" />
+	</platform>
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="OneAudienceCordova">
+				<param name="ios-package" value="OneAudienceCordova" />
+			</feature>
+		</config-file>
+<source-file src="src/ios/OneAudienceCordova.m"/>
+<framework src="src/ios/libs/AJKit.framework"/>
+<framework src="SystemConfiguration.framework"/>
+<framework src="MobileCoreServices.framework"/>
+<framework src="CoreTelephony.framework"/>
+<framework src="Security.framework"/>
+<framework src="AdSupport.framework"/>
+</platform>
 </plugin>
