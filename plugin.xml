@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="com.oneaudience.cordova"
+      version="0.1.0">
+    <name>OneAudienceCordova</name>
+    <description>One Audience Cordova Plugin</description>
+    <license>Private</license>
+    <keywords>phonegap,oneaudience</keywords>
+    <js-module src="www/oneaudiencecordova.js" name=“OneAudiencePlugin">
+        <clobbers target="window.plugins.oneaudiencecordova" />
+    </js-module>
+    
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name=“OneAudiencePlugin">
+                <param name="android-package" value="com.oneaudience.cordova.OneAudiencePlugin"/>
+            </feature>
+        </config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET" />
+		</config-file>
+		
+        <source-file src="src/android/com/oneaudience/cordova/OneAudiencePlugin.java" target-dir="src/com/oneaudience/cordova" />
+        <source-file src="src/android/libs/OneAudience-sdk-release-1.9.jar" target-dir="libs" />
+     </platform>
+</plugin>
