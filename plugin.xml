@@ -7,14 +7,14 @@
     <description>One Audience Cordova Plugin</description>
     <license>Private</license>
     <keywords>phonegap,oneaudience</keywords>
-    <js-module src="www/oneaudiencecordova.js" name=“OneAudiencePlugin">
-        <clobbers target="window.plugins.oneaudiencecordova" />
+    <js-module src="www/oneaudiencecordova.js" name="OneAudiencePlugin">
+        <clobbers target="window.plugins.oneaudiencecordova"/>
     </js-module>
     
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name=“OneAudiencePlugin">
+            <feature name="OneAudiencePlugin">
                 <param name="android-package" value="com.oneaudience.cordova.OneAudiencePlugin"/>
             </feature>
         </config-file>
