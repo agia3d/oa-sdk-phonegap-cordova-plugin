@@ -4,7 +4,7 @@ function OneAudienceCordova() {
 }
 
 OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallback) {
-	var devicePlatform = device.platfrom;
+	var devicePlatform = device.platform;
 	if (devicePlatform === "Android") {
 		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudiencePlugin", "init", [appKey]); 
 	} else if (devicePlatform === "iOS") {
@@ -14,7 +14,7 @@ OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallb
 };
 
 OneAudienceCordova.prototype.eulaAccepted = function(successCallback, errorCallback) {
-	var devicePlatform = device.platfrom;
+	var devicePlatform = device.platform;
 	if (devicePlatform === "Android") {
 	cordova.exec(successCallback, this._getErrorCallback(errorCallback, "eulaAccepted"), "OneAudiencePlugin", "eulaAccepted", []);
 	}	
