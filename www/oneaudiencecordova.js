@@ -19,7 +19,7 @@ OneAudienceCordova.prototype._getErrorCallback = function (errorCallback, functi
 	}
 	else {
 		return function(result) {
-			console.log(“OneAudienceCordova Error Callback: function " + functionName + " returned: " + JSON.stringify(result));
+			console.log("OneAudienceCordova Error Callback: function " + functionName + " returned: " + JSON.stringify(result));
 		}
 	}
 };
