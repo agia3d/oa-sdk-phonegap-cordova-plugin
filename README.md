@@ -1,0 +1,1 @@
+# oneaudience-sdk-phonegap-cordova-plugin
