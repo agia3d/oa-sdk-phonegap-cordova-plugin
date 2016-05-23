@@ -8,6 +8,7 @@ OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallb
 	if (devicePlatform === "Android") {
 		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudiencePlugin", "init", [appKey]); 
 	} else if (devicePlatform === "iOS") {
+		console.log("OneAudience Init IOS");
 		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudienceCordova", "init", [appKey]); 
 	}
 	

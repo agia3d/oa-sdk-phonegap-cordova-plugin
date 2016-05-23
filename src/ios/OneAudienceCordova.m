@@ -14,6 +14,7 @@
 
 - (void)init:(CDVInvokedUrlCommand*)command
 {
+    NSLog(@"OneAudience Init Objective C called");
     CDVPluginResult* pluginResult = nil;
     NSString* appKey = [command.arguments objectAtIndex:0];
 
