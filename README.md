@@ -25,6 +25,7 @@ $ cordova plugin add https://github.com/oneaudience/oneaudience-sdk-phonegap-cor
 Then run:
 ```
 $ cordova prepare
+```
 
 ## 3. Usage
 One Audience is automatically added to your javascript through the window.plugins.oneaudience object. So you are now ready to integrate One Audience into your Cordova/PhoneGap app:
