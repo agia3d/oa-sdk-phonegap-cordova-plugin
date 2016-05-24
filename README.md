@@ -33,7 +33,7 @@ One Audience is automatically added to your javascript through the window.plugin
 Initialize the SDK by within your onDeviceReady function implementation
 ```
 windows.plugin.oneaudiencecordova.init("YOUR-APP-KEY");
-````
+```
 
 
 
