@@ -14,6 +14,13 @@ OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallb
 	
 };
 
+OneAudienceCordova.prototype.initWithCustomEula = function(appKey, customEula, successCallback, errorCallback) {
+	var devicePlatform = device.platform;
+	if (devicePlatform === "Android") {
+		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "initWithEula"), "OneAudiencePlugin", "initWithEula", [appKey, customEula]); 
+	} 
+};
+
 OneAudienceCordova.prototype.eulaAccepted = function(successCallback, errorCallback) {
 	var devicePlatform = device.platform;
 	if (devicePlatform === "Android") {
