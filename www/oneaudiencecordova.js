@@ -14,28 +14,6 @@ OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallb
 	
 };
 
-OneAudienceCordova.prototype.initCustomEula = function(appKey, successCallback, errorCallback) {
-	var devicePlatform = device.platform;
-	if (devicePlatform === "Android") {
-		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "initCustomEula"), "OneAudiencePlugin", "initCustomEula", [appKey, customEula]); 
-	} 
-};
-
-OneAudienceCordova.prototype.eulaAccepted = function(successCallback, errorCallback) {
-	var devicePlatform = device.platform;
-	if (devicePlatform === "Android") {
-	cordova.exec(successCallback, this._getErrorCallback(errorCallback, "eulaAccepted"), "OneAudiencePlugin", "eulaAccepted", []);
-	}	
-};
-
-OneAudienceCordova.prototype.eulaDeclined = function(successCallback, errorCallback) {
-	var devicePlatform = device.platform;
-	if (devicePlatform === "Android") {
-	cordova.exec(successCallback, this._getErrorCallback(errorCallback, "eulaDeclined"), "OneAudiencePlugin", "eulaDeclined", []);
-	}	
-};
-
-
 OneAudienceCordova.prototype._getErrorCallback = function (errorCallback, functionName) {
 	if (typeof errorCallback === 'function') {
 		return errorCallback;
