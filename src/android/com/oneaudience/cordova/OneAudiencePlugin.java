@@ -23,7 +23,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
         } else if (action.equals(ACTION_REQUEST_ACCOUNT_PERMISSION)){
         	OneAudience.requestAccountPermission(cordova.getActivity());
         } else if (action.equals(ACTION_OPTOUT)){
-        	OneAudience.optout();
+        	OneAudience.optOut();
         } else {
             callbackContext.error("OneAudienceCordova: " + action + " is not supported");
             return false;
