@@ -20,7 +20,15 @@ public class OneAudiencePlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals(ACTION_INIT)) {
-            OneAudience.init(cordova.getActivity(), args.getString(0));
+
+            this.cordova.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                OneAudience.init(cordova.getActivity(), args.getString(0));
+                }
+            });
+        }
+
         } else if (action.equals(ACTION_REQUEST_ACCOUNT_PERMISSION)){
         	OneAudience.requestAccountPermission(cordova.getActivity());
         } else if (action.equals(ACTION_OPTOUT)){
