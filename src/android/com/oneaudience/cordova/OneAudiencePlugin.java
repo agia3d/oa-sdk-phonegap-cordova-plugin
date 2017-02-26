@@ -18,7 +18,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
 
     @Override
-    public boolean execute(String action, final JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(final String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException {
             
         cordova.getActivity().runOnUiThread(new Runnable() {
 
@@ -33,14 +33,16 @@ public class OneAudiencePlugin extends CordovaPlugin {
                     OneAudience.setEmailAddress(args.getString(0));
                 } else {
                     callbackContext.error("OneAudienceCordova: " + action + " is not supported");
-                    return false;
+                    //return false;
                 }
 
                 callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
-                return true;
+                //return true;
             }
-            
+
         });
+
+        return true;
     }
 
     @Override
