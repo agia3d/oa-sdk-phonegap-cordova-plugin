@@ -21,15 +21,14 @@ public class OneAudiencePlugin extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
             
         final String _action = action;
-        //final JSONArray _args = args;
         final CallbackContext _callbackContext = callbackContext;
-        final argString = args.getString(0);
+        final JSONArray argString = args.getString(0);
 
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             public void run() {
                 if (_action.equals(ACTION_INIT)) {
-                    OneAudience.init(cordova.getActivity(), argString;
+                    OneAudience.init(cordova.getActivity(), argString);
                 } else if (_action.equals(ACTION_REQUEST_ACCOUNT_PERMISSION)){
                     OneAudience.requestAccountPermission(cordova.getActivity());
                 } else if (_action.equals(ACTION_OPTOUT)){
