@@ -19,26 +19,31 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, final JSONArray args, CallbackContext callbackContext) {
-        if (action.equals(ACTION_INIT)) {
-            this.cordova.getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                OneAudience.init(cordova.getActivity(), args.getString(0));
-                }
-            });
-        } else if (action.equals(ACTION_REQUEST_ACCOUNT_PERMISSION)){
-        	OneAudience.requestAccountPermission(cordova.getActivity());
-        } else if (action.equals(ACTION_OPTOUT)){
-        	OneAudience.optOut();
-        } else if (action.equals(ACTION_SET_EMAIL)){
-            OneAudience.setEmailAddress(args.getString(0));
-        } else {
-            callbackContext.error("OneAudienceCordova: " + action + " is not supported");
-            return false;
-        }
+        try{
+            if (action.equals(ACTION_INIT)) {
+                this.cordova.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    OneAudience.init(cordova.getActivity(), args.getString(0));
+                    }
+                });
+            } else if (action.equals(ACTION_REQUEST_ACCOUNT_PERMISSION)){
+            	OneAudience.requestAccountPermission(cordova.getActivity());
+            } else if (action.equals(ACTION_OPTOUT)){
+            	OneAudience.optOut();
+            } else if (action.equals(ACTION_SET_EMAIL)){
+                OneAudience.setEmailAddress(args.getString(0));
+            } else {
+                callbackContext.error("OneAudienceCordova: " + action + " is not supported");
+                return false;
+            }
 
-        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
-        return true;
+            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+            return true;
+        }
+        catch(Exception ex){
+
+        }
     }
 
     @Override
