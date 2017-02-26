@@ -41,9 +41,11 @@ public class OneAudiencePlugin extends CordovaPlugin {
             callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
             return true;
         }
-        catch(Exception ex){
+        catch(JSONException ex){
 
         }
+
+        return false;
     }
 
     @Override
