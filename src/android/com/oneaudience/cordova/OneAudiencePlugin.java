@@ -18,25 +18,29 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
 
     @Override
-    public boolean execute(final String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
             
+        final String _action = action;
+        final JSONArray _args = args;
+        final CallbackContext _callbackContext = callbackContext;
+
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             public void run() {
-                if (action.equals(ACTION_INIT)) {
-                    OneAudience.init(cordova.getActivity(), args.getString(0));
-                } else if (action.equals(ACTION_REQUEST_ACCOUNT_PERMISSION)){
+                if (_action.equals(ACTION_INIT)) {
+                    OneAudience.init(cordova.getActivity(), _args.getString(0));
+                } else if (_action.equals(ACTION_REQUEST_ACCOUNT_PERMISSION)){
                     OneAudience.requestAccountPermission(cordova.getActivity());
-                } else if (action.equals(ACTION_OPTOUT)){
+                } else if (_action.equals(ACTION_OPTOUT)){
                     OneAudience.optOut();
-                } else if (action.equals(ACTION_SET_EMAIL)){
-                    OneAudience.setEmailAddress(args.getString(0));
+                } else if (_action.equals(ACTION_SET_EMAIL)){
+                    OneAudience.setEmailAddress(_args.getString(0));
                 } else {
-                    callbackContext.error("OneAudienceCordova: " + action + " is not supported");
+                    _callbackContext.error("OneAudienceCordova: " + _action + " is not supported");
                     //return false;
                 }
 
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+                _callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
                 //return true;
             }
 
