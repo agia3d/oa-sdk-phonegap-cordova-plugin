@@ -27,8 +27,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
                 OneAudience.init(cordova.getActivity(), args.getString(0));
                 }
             });
-        }
-
+        
         } else if (action.equals(ACTION_REQUEST_ACCOUNT_PERMISSION)){
         	OneAudience.requestAccountPermission(cordova.getActivity());
         } else if (action.equals(ACTION_OPTOUT)){
