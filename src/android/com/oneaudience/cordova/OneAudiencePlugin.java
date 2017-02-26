@@ -14,6 +14,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
     public static final String ACTION_INIT = "init";
     public static final String ACTION_REQUEST_ACCOUNT_PERMISSION = "requestAccountPermission";
     public static final String ACTION_OPTOUT = "optout";
+    public static final String ACTION_SET_EMAIL = "setEmailAddress";
 
 
     @Override
@@ -24,6 +25,8 @@ public class OneAudiencePlugin extends CordovaPlugin {
         	OneAudience.requestAccountPermission(cordova.getActivity());
         } else if (action.equals(ACTION_OPTOUT)){
         	OneAudience.optOut();
+        } else if (action.equals(ACTION_SET_EMAIL)){
+            OneAudience.setEmailAddress(args.getString(0));
         } else {
             callbackContext.error("OneAudienceCordova: " + action + " is not supported");
             return false;

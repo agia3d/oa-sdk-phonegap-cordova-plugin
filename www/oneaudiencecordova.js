@@ -14,6 +14,35 @@ OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallb
 	
 };
 
+OneAudienceCordova.prototype.optout = function(successCallback, errorCallback) {
+	var devicePlatform = device.platform;
+	if (devicePlatform === "Android") {
+		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "optout"), "OneAudiencePlugin", "optout"); 
+	} else if (devicePlatform === "iOS") {
+		console.log("OneAudience Init IOS");
+		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "optOut"), "OneAudienceCordova", "optOut"); 
+	}
+	
+};
+
+OneAudienceCordova.prototype.setEmailAddress = function(email, successCallback, errorCallback) {
+	var devicePlatform = device.platform;
+	if (devicePlatform === "Android") {
+		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "setEmailAddress"), "OneAudiencePlugin", "setEmailAddress", [email]); 
+	} else if (devicePlatform === "iOS") {
+		console.log("OneAudience Init IOS");
+		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "setEmailAddress"), "OneAudienceCordova", "setEmailAddress", [email]); 
+	}
+	
+};
+
+OneAudienceCordova.prototype.requestAccountPermission = function(emailsuccessCallback, errorCallback) {
+	var devicePlatform = device.platform;
+	if (devicePlatform === "Android")
+		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "requestAccountPermission"), "OneAudiencePlugin", "requestAccountPermission"); 
+	
+};
+
 OneAudienceCordova.prototype._getErrorCallback = function (errorCallback, functionName) {
 	if (typeof errorCallback === 'function') {
 		return errorCallback;
