@@ -9,7 +9,7 @@
 
 - (void)init:(CDVInvokedUrlCommand*)command;
 - (void)setEmailAddress:(CDVInvokedUrlCommand*)command;
-- (void)optOut;
+- (void)optOut:(CDVInvokedUrlCommand*)command;;
 
 @end
 
@@ -51,7 +51,7 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)optOut
+- (void)optOut:(CDVInvokedUrlCommand*)command
 {
     NSLog(@"optout Objective C called");
 
