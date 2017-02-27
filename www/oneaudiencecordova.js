@@ -36,7 +36,7 @@ OneAudienceCordova.prototype.setEmailAddress = function(email, successCallback, 
 	
 };
 
-OneAudienceCordova.prototype.requestAccountPermission = function(emailsuccessCallback, errorCallback) {
+OneAudienceCordova.prototype.requestAccountPermission = function(successCallback, errorCallback) {
 	var devicePlatform = device.platform;
 	if (devicePlatform === "Android"){
 		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "requestAccountPermission"), "OneAudiencePlugin", "requestAccountPermission", []); 
