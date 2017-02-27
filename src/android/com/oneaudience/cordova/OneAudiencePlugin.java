@@ -20,23 +20,25 @@ public class OneAudiencePlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         
-        //java.lang.System.out.println("OneAudiencePlugin", "args = " + args.toString());   
         final String _action = action;
         final CallbackContext _callbackContext = callbackContext;
-        final JSONArray _args = args;
+
+        String param = ""; 
+        if( _action.equals(ACTION_INIT) || _action.equals(ACTION_SET_EMAIL))
+            param = args.getString(0);
 
 
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             public void run() {
                 if (_action.equals(ACTION_INIT)) {
-                    OneAudience.init(cordova.getActivity(), _args.getString(0));
+                    OneAudience.init(cordova.getActivity(), param);
                 } else if (_action.equals(ACTION_REQUEST_ACCOUNT_PERMISSION)){
                     OneAudience.requestAccountPermission(cordova.getActivity());
                 } else if (_action.equals(ACTION_OPTOUT)){
                     OneAudience.optOut();
                 } else if (_action.equals(ACTION_SET_EMAIL)){
-                    OneAudience.setEmailAddress(_args.getString(0));
+                    OneAudience.setEmailAddress(param);
                 } else {
                     _callbackContext.error("OneAudienceCordova: " + _action + " is not supported");
                 }
