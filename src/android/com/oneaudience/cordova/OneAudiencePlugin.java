@@ -19,10 +19,13 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+        
+        Logger.i("OneAudiencePlugin", "args = " + args.toString());
             
         final String _action = action;
         final CallbackContext _callbackContext = callbackContext;
-        final String argString = args.length() > 0 ? args.getString(0) : "";
+        final String argString = args != null ? args.getString(0) : "";
+
 
         cordova.getActivity().runOnUiThread(new Runnable() {
 
