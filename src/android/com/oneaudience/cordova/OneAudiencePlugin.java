@@ -22,7 +22,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
             
         final String _action = action;
         final CallbackContext _callbackContext = callbackContext;
-        final String argString = args.getString(0);
+        final String argString = argString.length() > 0 ? args.getString(0) : "";
 
         cordova.getActivity().runOnUiThread(new Runnable() {
 
@@ -37,11 +37,9 @@ public class OneAudiencePlugin extends CordovaPlugin {
                     OneAudience.setEmailAddress(argString);
                 } else {
                     _callbackContext.error("OneAudienceCordova: " + _action + " is not supported");
-                    //return false;
                 }
 
                 _callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
-                //return true;
             }
 
         });
