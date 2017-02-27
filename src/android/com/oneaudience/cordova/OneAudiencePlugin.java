@@ -23,7 +23,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
         final String _action = action;
         final CallbackContext _callbackContext = callbackContext;
 
-        final String param = args == null ? "" : args.getString(0); 
+        final String param = (args != null && args.length() > 0) ? args.getString(0) : ""; 
 
         cordova.getActivity().runOnUiThread(new Runnable() {
 
