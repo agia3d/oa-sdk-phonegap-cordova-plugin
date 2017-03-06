@@ -1,7 +1,9 @@
 /********* OneAudienceCordova.m Cordova Plugin Implementation *******/
 
+#import <Foundation/Foundation.h>
 #import <Cordova/CDV.h>
 #import "AJKit/AJKit.h"
+
 
 @interface OneAudienceCordova : CDVPlugin {
   // Member variables go here.
@@ -24,7 +26,10 @@
     if (appKey != nil && [appKey length] > 0) {
         NSLog(@"OneAudience AppKey: %@", appKey);
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:appKey];
-        [AJKit init:appKey];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [AJKit init:appKey];
+        });
+        
     } else {
         NSLog(@"OneAudience AppKey is nill or empty");
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
