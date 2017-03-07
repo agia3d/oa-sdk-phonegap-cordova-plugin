@@ -24,7 +24,9 @@
     if (appKey != nil && [appKey length] > 0) {
         NSLog(@"OneAudience AppKey: %@", appKey);
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:appKey];
-        [AJKit init:appKey];
+        [Self.commandDelegate runInBackground:^]{
+            [AJKit init:appKey];
+        }];
     } else {
         NSLog(@"OneAudience AppKey is nill or empty");
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
