@@ -9,10 +9,7 @@ OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallb
 		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudiencePlugin", "init", [appKey]); 
 	} else if (devicePlatform === "iOS") {
 		console.log("OneAudience Init IOS");
-		new Promise(function(resolve, reject) {
-			cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudienceCordova", "init", [appKey]); 
-			resolve("OneAudience Init Called");
-		});
+		cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudienceCordova", "init", [appKey]); 
 	}
 	
 };
