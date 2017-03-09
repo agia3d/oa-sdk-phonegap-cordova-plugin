@@ -25,7 +25,7 @@ FOUNDATION_EXPORT NSString *const kAPJClickedNotificationUserCode;
  *
  *  @param launchOptions App Launch Options
  */
-+ (void) init:(NSString *)appKey;
++ (void) initWithLaunchOptions:(NSString *)appKey;
 
 
 
@@ -33,7 +33,5 @@ FOUNDATION_EXPORT NSString *const kAPJClickedNotificationUserCode;
  * Call this method if you have user email address
  */
 +(void) setEmailAddress: (NSString *) email;
-
-+(void) optOut;
 
 @end
