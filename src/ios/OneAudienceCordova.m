@@ -63,7 +63,6 @@
     [self.commandDelegate runInBackground:^{
         [AJKit optOut];
     }];
-
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 @end
