@@ -44,7 +44,9 @@
     if (email != nil && [email length] > 0) {
         NSLog(@"email: %@", email);
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:email];
-        [AJKit setEmailAddress:email];
+        [self.commandDelegate runInBackground:^{
+            [AJKit setEmailAddress:email];
+        }];
     } else {
         NSLog(@"email is nill or empty");
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -58,7 +60,9 @@
     NSLog(@"optout Objective C called");
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [AJKit optOut];
+    [self.commandDelegate runInBackground:^{
+        [AJKit optOut];
+    }];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
