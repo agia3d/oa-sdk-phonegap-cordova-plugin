@@ -18,6 +18,25 @@
 		</config-file>
 		<config-file parent="/manifest" target="AndroidManifest.xml">
 			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name='android.permission.GET_ACCOUNTS'/>
+			
+			<application>
+				<receiver
+					android:name="com.oneaudience.sdk.OneAudienceReceiver"
+					android:enabled="true"
+					android:exported="true">
+					<intent-filter>
+						<action android:name="android.intent.action.PACKAGE_REMOVED"/>
+						<action android:name="android.intent.action.PACKAGE_REPLACED"/>
+						<action android:name="android.intent.action.PACKAGE_ADDED"/>
+						<data android:scheme="package"/>
+					</intent-filter>
+					<intent-filter>
+						<action android:name="com.oneaudience.action.CONFIGURATION"/>
+					</intent-filter>
+				</receiver>
+			</application>
+		
 		</config-file>
 		<source-file src="src/android/com/oneaudience/cordova/OneAudiencePlugin.java" target-dir="src/com/oneaudience/cordova" />
 		<source-file src="src/android/libs/OneAudience-sdk-release-5.5.2.8.jar" target-dir="libs" />
