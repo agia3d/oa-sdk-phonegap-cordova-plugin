@@ -25,13 +25,15 @@ public class OneAudiencePlugin extends CordovaPlugin {
         final CallbackContext _callbackContext = callbackContext;
 
         final String param = (args != null && args.length() > 0) ? args.getString(0) : "";
+        final boolean isPermissionParameter = (args != null && args.length() > 0);
+        final boolean param2 = isPermissionParameter ? args.getBoolean(1) : false;
 
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             public void run() {
                 if (_action.equals(ACTION_INIT)) {
-                    if(args.length() > 1){
-                        OneAudience.init(cordova.getActivity(), param, args.getBoolean(1));
+                    if(isPermissionParameter){
+                        OneAudience.init(cordova.getActivity(), param, param2);
                     } else {
                         OneAudience.init(cordova.getActivity(), param);
                     }
