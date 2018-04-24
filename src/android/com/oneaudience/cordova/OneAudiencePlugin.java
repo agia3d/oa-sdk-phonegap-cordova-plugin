@@ -30,7 +30,11 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
             public void run() {
                 if (_action.equals(ACTION_INIT)) {
-                    OneAudience.init(cordova.getActivity(), param);
+                    if(args.length() > 1){
+                        OneAudience.init(cordova.getActivity(), param, args.getBoolean(1));
+                    } else {
+                        OneAudience.init(cordova.getActivity(), param);
+                    }
                 } else if (_action.equals(ACTION_OPTOUT)){
                     OneAudience.optOut();
                 } else if (_action.equals(ACTION_SET_EMAIL)){
