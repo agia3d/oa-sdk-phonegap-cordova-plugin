@@ -36,9 +36,9 @@ public class OneAudiencePlugin extends CordovaPlugin {
                 } else if (_action.equals(ACTION_SET_EMAIL)){
                     OneAudience.setEmailAddress(param);
                 } else if (_action.equals(ACTION_SET_AGE)){
-                    OneAudience.setAge(param);
+                    OneAudience.setAge(Integer.parseInt(param));
                 } else if (_action.equals(ACTION_SET_GENDER)){
-                    OneAudience.setGender(param);
+                    OneAudience.setGender(Integer.parseInt(param));
                 } else {
                     _callbackContext.error("OneAudienceCordova: " + _action + " is not supported");
                 }
