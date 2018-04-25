@@ -23,28 +23,25 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
         final String _action = action;
         final CallbackContext _callbackContext = callbackContext;
-
-        final String param = (args != null && args.length() > 0) ? args.getString(0) : "";
-        final boolean isPermissionParameter = (args != null && args.length() > 0);
-        final boolean param2 = isPermissionParameter ? args.getBoolean(1) : false;
+        final JSONArray _args = args;
 
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             public void run() {
                 if (_action.equals(ACTION_INIT)) {
-                    if(isPermissionParameter){
-                        OneAudience.init(cordova.getActivity(), param, param2);
+                    if(_args.length() > 1){
+                        OneAudience.init(cordova.getActivity(), _args.getString(0), _args.getBoolean(1));
                     } else {
-                        OneAudience.init(cordova.getActivity(), param);
+                        OneAudience.init(cordova.getActivity(), _args.getString(0));
                     }
                 } else if (_action.equals(ACTION_OPTOUT)){
                     OneAudience.optOut();
                 } else if (_action.equals(ACTION_SET_EMAIL)){
-                    OneAudience.setEmailAddress(param);
+                    OneAudience.setEmailAddress(_args.getString(0));
                 } else if (_action.equals(ACTION_SET_AGE)){
-                    OneAudience.setAge(Integer.parseInt(param));
+                    OneAudience.setAge(_args.getInt(0));
                 } else if (_action.equals(ACTION_SET_GENDER)){
-                    OneAudience.setGender(Integer.parseInt(param));
+                    OneAudience.setGender(_args.getInt(0));
                 } else {
                     _callbackContext.error("OneAudienceCordova: " + _action + " is not supported");
                 }
