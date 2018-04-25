@@ -19,7 +19,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 
         final String _action = action;
         final CallbackContext _callbackContext = callbackContext;
@@ -28,25 +28,29 @@ public class OneAudiencePlugin extends CordovaPlugin {
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             public void run() {
-                if (_action.equals(ACTION_INIT)) {
-                    if(_args.length() > 1){
-                        OneAudience.init(cordova.getActivity(), _args.getString(0), _args.getBoolean(1));
+                try{
+                    if (_action.equals(ACTION_INIT)) {
+                        if(_args.length() > 1){
+                            OneAudience.init(cordova.getActivity(), _args.getString(0), _args.getBoolean(1));
+                        } else {
+                            OneAudience.init(cordova.getActivity(), _args.getString(0));
+                        }
+                    } else if (_action.equals(ACTION_OPTOUT)){
+                        OneAudience.optOut();
+                    } else if (_action.equals(ACTION_SET_EMAIL)){
+                        OneAudience.setEmailAddress(_args.getString(0));
+                    } else if (_action.equals(ACTION_SET_AGE)){
+                        OneAudience.setAge(_args.getInt(0));
+                    } else if (_action.equals(ACTION_SET_GENDER)){
+                        OneAudience.setGender(_args.getInt(0));
                     } else {
-                        OneAudience.init(cordova.getActivity(), _args.getString(0));
+                        _callbackContext.error("OneAudienceCordova: " + _action + " is not supported");
                     }
-                } else if (_action.equals(ACTION_OPTOUT)){
-                    OneAudience.optOut();
-                } else if (_action.equals(ACTION_SET_EMAIL)){
-                    OneAudience.setEmailAddress(_args.getString(0));
-                } else if (_action.equals(ACTION_SET_AGE)){
-                    OneAudience.setAge(_args.getInt(0));
-                } else if (_action.equals(ACTION_SET_GENDER)){
-                    OneAudience.setGender(_args.getInt(0));
-                } else {
-                    _callbackContext.error("OneAudienceCordova: " + _action + " is not supported");
-                }
 
-                _callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+                    _callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+                } catch (JSONException e) {
+                    _callbackContext.error("OneAudienceCordova: wrong parameter");
+                }
             }
 
         });
