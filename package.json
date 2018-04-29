@@ -1,0 +1,29 @@
+{
+  "name": "com.oneaudience.cordova",
+  "version": "0.1.0",
+  "description": "One Audience Cordova Plugin",
+  "cordova": {
+    "id": "com.oneaudience.cordova",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Alonbb44@github.com/oneaudience/oa-sdk-phonegap-cordova-plugin.git"
+  },
+  "keywords": [
+    "phonegap",
+    "oneaudience",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "One Audience",
+  "license": "Private",
+  "bugs": {
+    "url": "https://github.com/oneaudience/oa-sdk-phonegap-cordova-plugin/issues"
+  },
+  "homepage": "https://github.com/oneaudience/oa-sdk-phonegap-cordova-plugin#readme"
+}
