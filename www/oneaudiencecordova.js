@@ -11,18 +11,13 @@ OneAudienceCordova.prototype.init = function(appKey, successCallback, errorCallb
         console.log("OneAudience Init IOS");
         cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudienceCordova", "init", [appKey]);
     }
-
 };
 
 OneAudienceCordova.prototype.init = function(appKey, requestPermissions, successCallback, errorCallback) {
     var devicePlatform = device.platform;
     if (devicePlatform === "Android") {
         cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudiencePlugin", "init", [appKey, requestPermissions]);
-    } else if (devicePlatform === "iOS") {
-        console.log("OneAudience Init IOS");
-        cordova.exec(successCallback, this._getErrorCallback(errorCallback, "init"), "OneAudienceCordova", "init", [appKey, requestPermissions]);
     }
-
 };
 
 OneAudienceCordova.prototype.optout = function(successCallback, errorCallback) {
@@ -33,7 +28,6 @@ OneAudienceCordova.prototype.optout = function(successCallback, errorCallback) {
         console.log("OneAudience Init IOS");
         cordova.exec(successCallback, this._getErrorCallback(errorCallback, "optOut"), "OneAudienceCordova", "optOut", []);
     }
-
 };
 
 OneAudienceCordova.prototype.setEmailAddress = function(email, successCallback, errorCallback) {
@@ -44,29 +38,20 @@ OneAudienceCordova.prototype.setEmailAddress = function(email, successCallback, 
         console.log("OneAudience Init IOS");
         cordova.exec(successCallback, this._getErrorCallback(errorCallback, "setEmailAddress"), "OneAudienceCordova", "setEmailAddress", [email]);
     }
-
 };
 
 OneAudienceCordova.prototype.setAge = function(age, successCallback, errorCallback) {
     var devicePlatform = device.platform;
     if (devicePlatform === "Android") {
         cordova.exec(successCallback, this._getErrorCallback(errorCallback, "setAge"), "OneAudiencePlugin", "setAge", [age]);
-    } else if (devicePlatform === "iOS") {
-        console.log("OneAudience Init IOS");
-        cordova.exec(successCallback, this._getErrorCallback(errorCallback, "setAge"), "OneAudienceCordova", "setAge", [age]);
     }
-
 };
 
 OneAudienceCordova.prototype.setGender = function(gender, successCallback, errorCallback) {
     var devicePlatform = device.platform;
     if (devicePlatform === "Android") {
         cordova.exec(successCallback, this._getErrorCallback(errorCallback, "setGender"), "OneAudiencePlugin", "setGender", [gender]);
-    } else if (devicePlatform === "iOS") {
-        console.log("OneAudience Init IOS");
-        cordova.exec(successCallback, this._getErrorCallback(errorCallback, "setGender"), "OneAudienceCordova", "setGender", [gender]);
     }
-
 };
 
 OneAudienceCordova.prototype._getErrorCallback = function (errorCallback, functionName) {
