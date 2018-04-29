@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="com.oneaudience.cordova" 
-	version="0.1.0" 
-	xmlns="http://www.phonegap.com/ns/plugins/1.0">
+<plugin id="com.oneaudience.cordova"
+		version="0.1.0"
+		xmlns="http://www.phonegap.com/ns/plugins/1.0">
 	<name>OneAudienceCordova</name>
 	<description>One Audience Cordova Plugin</description>
 	<license>Private</license>
@@ -21,7 +21,7 @@
 			<uses-permission android:name='android.permission.GET_ACCOUNTS'/>
 		</config-file>
 		<source-file src="src/android/com/oneaudience/cordova/OneAudiencePlugin.java" target-dir="src/com/oneaudience/cordova" />
-		<source-file src="src/android/libs/OneAudience-sdk-release-5.5.2.8.jar" target-dir="libs" />
+		<source-file src="src/android/libs/OneAudience-sdk-release-6.0.0.2.jar" target-dir="libs" />
 	</platform>
 	<platform name="ios">
 		<config-file parent="/*" target="config.xml">
@@ -29,12 +29,12 @@
 				<param name="ios-package" value="OneAudienceCordova" />
 			</feature>
 		</config-file>
-<source-file src="src/ios/OneAudienceCordova.m" />
-<framework src="src/ios/libs/AJKit.framework" custom="true"/>
-<framework src="SystemConfiguration.framework" weak="true"/>
-<framework src="MobileCoreServices.framework" weak="true"/>
-<framework src="CoreTelephony.framework" weak="true"/>
-<framework src="Security.framework" weak="true"/>
-<framework src="AdSupport.framework" weak="true"/>
-</platform>
+		<source-file src="src/ios/OneAudienceCordova.m" />
+		<framework src="src/ios/libs/AJKit.framework" custom="true"/>
+		<framework src="SystemConfiguration.framework" weak="true"/>
+		<framework src="MobileCoreServices.framework" weak="true"/>
+		<framework src="CoreTelephony.framework" weak="true"/>
+		<framework src="Security.framework" weak="true"/>
+		<framework src="AdSupport.framework" weak="true"/>
+	</platform>
 </plugin>
