@@ -9,17 +9,17 @@
 	<js-module name="OneAudiencePlugin" src="www/oneaudiencecordova.js">
 		<clobbers target="window.plugins.oneaudiencecordova" />
 	</js-module>
-	<!--<dependency id="cordova-plugin-device"/>-->
+	<dependency id="cordova-plugin-device"/>
 	<platform name="android">
-		<config-file target="popo.xml" parent="/*">
+		<edit-file file="app/src/main/res/xml/config.xml" target="/*" mode="merge">
 			<feature name="OneAudiencePlugin">
 				<param name="android-package" value="com.oneaudience.cordova.OneAudiencePlugin" />
 			</feature>
-		</config-file>
-		<config-file target="app/src/main/AndroidManifest.xml" parent="/*">
+		</edit-file>
+		<edit-file file="app/src/main/AndroidManifest.xml" target="/*" mode="merge">
 			<uses-permission android:name="android.permission.INTERNET" />
 			<uses-permission android:name='android.permission.GET_ACCOUNTS'/>
-		</config-file>
+		</edit-file>
 		<source-file src="src/android/com/oneaudience/cordova/OneAudiencePlugin.java" target-dir="src/com/oneaudience/cordova" />
 		<source-file src="src/android/libs/OneAudience-sdk-release-6.0.0.2.jar" target-dir="libs" />
 	</platform>
