@@ -11,11 +11,11 @@
 	</js-module>
 	<dependency id="cordova-plugin-device"/>
 	<platform name="android">
-		<!--<edit-file file="app/src/main/res/xml/config.xml" target="/*" mode="merge">-->
-			<!--<feature name="OneAudiencePlugin">-->
-				<!--<param name="android-package" value="com.oneaudience.cordova.OneAudiencePlugin" />-->
-			<!--</feature>-->
-		<!--</edit-file>-->
+		<edit-file file="app/src/main/res/xml/config.xml" target="/*" mode="merge">
+			<feature name="OneAudiencePlugin">
+				<param name="android-package" value="com.oneaudience.cordova.OneAudiencePlugin" />
+			</feature>
+		</edit-file>
 		<edit-file file="app/src/main/AndroidManifest.xml" target="/*" mode="merge">
 			<uses-permission android:name="android.permission.INTERNET" />
 			<uses-permission android:name='android.permission.GET_ACCOUNTS'/>
