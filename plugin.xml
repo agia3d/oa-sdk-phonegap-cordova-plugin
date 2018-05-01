@@ -22,6 +22,7 @@
 		</config-file>
 		<source-file src="src/android/com/oneaudience/cordova/OneAudiencePlugin.java" target-dir="src/com/oneaudience/cordova" />
 		<source-file src="src/android/libs/OneAudience-sdk-release-6.0.0.2.jar" target-dir="app/src/main/libs" />
+		<lib-file src="src/android/libs/OneAudience-sdk-release-6.0.0.2.jar" />
 	</platform>
 	<platform name="ios">
 		<config-file parent="/*" target="config.xml">
