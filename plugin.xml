@@ -9,7 +9,7 @@
 	<js-module name="OneAudiencePlugin" src="www/oneaudiencecordova.js">
 		<clobbers target="window.plugins.oneaudiencecordova" />
 	</js-module>
-	<dependency id="cordova-plugin-device"/>
+	<!--<dependency id="cordova-plugin-device"/>-->
 	<platform name="android">
 		<config-file target="app/src/main/res/xml/config.xml" parent="/*">
 			<feature name="OneAudiencePlugin">
