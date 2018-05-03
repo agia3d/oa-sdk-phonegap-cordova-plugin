@@ -59,8 +59,8 @@ function Device () {
  * @param {Function} errorCallback The function to call when there is an error getting the heading data. (OPTIONAL)
  */
 Device.prototype.getInfo = function (successCallback, errorCallback) {
-    argscheck.checkArgs('fF', 'Device.getInfo', arguments);
-    exec(successCallback, errorCallback, 'Device', 'getDeviceInfo', []);
+    //argscheck.checkArgs('fF', 'Device.getInfo', arguments);
+    exec(successCallback, errorCallback, 'OneAudiencePlugin', 'getDeviceInfo', []);
 };
 
 module.exports = new Device();

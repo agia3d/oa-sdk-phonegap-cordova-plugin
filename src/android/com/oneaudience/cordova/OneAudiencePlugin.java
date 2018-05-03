@@ -8,6 +8,11 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
+import java.util.TimeZone;
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.CordovaInterface;
+import org.json.JSONObject;
+import android.provider.Settings;
 
 
 public class OneAudiencePlugin extends CordovaPlugin {
@@ -16,10 +21,25 @@ public class OneAudiencePlugin extends CordovaPlugin {
     public static final String ACTION_SET_EMAIL = "setEmailAddress";
     public static final String ACTION_SET_AGE = "setAge";
     public static final String ACTION_SET_GENDER = "setGender";
+    public static final String ACTION_GET_PLATFORM = "getDeviceInfo";
+
+    // Device plugin
+    public static String platform;
+
+    private static final String ANDROID_PLATFORM = "Android";
+    private static final String AMAZON_PLATFORM = "amazon-fireos";
+    private static final String AMAZON_DEVICE = "Amazon";
 
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+
+        if (_action.equals(ACTION_GET_PLATFORM)){
+            JSONObject r = new JSONObject();
+            r.put("platform", this.getPlatform());
+            callbackContext.success(r);
+            return true;
+        }
 
         final String _action = action;
         final CallbackContext _callbackContext = callbackContext;
@@ -43,6 +63,10 @@ public class OneAudiencePlugin extends CordovaPlugin {
                         OneAudience.setAge(_args.getInt(0));
                     } else if (_action.equals(ACTION_SET_GENDER)){
                         OneAudience.setGender(_args.getInt(0));
+                    } else if (_action.equals(ACTION_GET_PLATFORM)){
+                        JSONObject r = new JSONObject();
+                        r.put("platform", this.getPlatform());
+                        callbackContext.success(r);
                     } else {
                         _callbackContext.error("OneAudienceCordova: " + _action + " is not supported");
                     }
@@ -63,5 +87,51 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
     }
 
+    //=======================
+    // Device plugin
+    //=======================
+
+    /**
+     * Sets the context of the Command. This can then be used to do things like
+     * get file paths associated with the Activity.
+     *
+     * @param cordova The context of the main Activity.
+     * @param webView The CordovaWebView Cordova is running in.
+     */
+    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        super.initialize(cordova, webView);
+    }
+
+    /**
+     * Get the OS name.
+     *
+     * @return
+     */
+    public String getPlatform() {
+        String platform;
+        if (isAmazonDevice()) {
+            platform = AMAZON_PLATFORM;
+        } else {
+            platform = ANDROID_PLATFORM;
+        }
+        return platform;
+    }
+
+    /**
+     * Function to check if the device is manufactured by Amazon
+     *
+     * @return
+     */
+    public boolean isAmazonDevice() {
+        if (android.os.Build.MANUFACTURER.equals(AMAZON_DEVICE)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isVirtual() {
+    return android.os.Build.FINGERPRINT.contains("generic") ||
+        android.os.Build.PRODUCT.contains("sdk");
+    }
 }
 
