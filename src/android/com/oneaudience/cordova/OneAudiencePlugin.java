@@ -36,7 +36,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
         if (_action.equals(ACTION_GET_PLATFORM)){
             JSONObject r = new JSONObject();
-            r.put("platform", this.getPlatform());
+            r.put("platform", "android");
             callbackContext.success(r);
             return true;
         }
@@ -63,10 +63,6 @@ public class OneAudiencePlugin extends CordovaPlugin {
                         OneAudience.setAge(_args.getInt(0));
                     } else if (_action.equals(ACTION_SET_GENDER)){
                         OneAudience.setGender(_args.getInt(0));
-                    } else if (_action.equals(ACTION_GET_PLATFORM)){
-                        JSONObject r = new JSONObject();
-                        r.put("platform", this.getPlatform());
-                        callbackContext.success(r);
                     } else {
                         _callbackContext.error("OneAudienceCordova: " + _action + " is not supported");
                     }
