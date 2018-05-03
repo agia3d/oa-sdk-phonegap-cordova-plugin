@@ -34,7 +34,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 
-        if (_action.equals(ACTION_GET_PLATFORM)){
+        if (action.equals(ACTION_GET_PLATFORM)){
             JSONObject r = new JSONObject();
             r.put("platform", "android");
             callbackContext.success(r);
