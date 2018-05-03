@@ -32,7 +32,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
         if (action.equals(ACTION_GET_PLATFORM)){
             JSONObject r = new JSONObject();
