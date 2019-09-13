@@ -30,14 +30,20 @@ $ cordova prepare
 ## 3. Usage
 One Audience is automatically added to your javascript through the window.plugins.oneaudience object. So you are now ready to integrate One Audience into your Cordova/PhoneGap app:
 
-### 3a. Initialization
-Initialize the SDK by within your onDeviceReady function implementation
+### 3a. Google play services (Android only)
+OneAudience for Android requires Google Play Services in order to process the Google Advertising Id and ensure fraud-free audience segmentation. If you do not already have integration with Google Play Services, follow the steps to sign up with [Firebase](https://firebase.google.com/ "Firebase"), download the `google-services.json` for your project, and place in `platforms/android/app`.
+
+### 3b. Initialization
+Initialize the SDK by within your onDeviceReady function implementation:
 ```
-windows.plugin.oneaudiencecordova.init("YOUR-APP-KEY");
+window.plugins.oneaudiencecordova.init("YOUR-APP-KEY");
 ```
 
-
-
-Add a google play service that can get advertising id; sign up with Firebase (make sure the
-package name and app info match what is in your project sturcture); and get google-services.json and place in platforms/[your platform]/app. Make sure that the info in 
-that json file is the same as for your project (i.e. the package name needs to be the same).
+Optionally, you may also pass success and error callbacks:
+```
+window.plugins.oneaudiencecordova.init(
+    "YOUR-APP-KEY",
+    function(data) { console.log(data); },
+    function(err) { console.log(err); }
+);
+```

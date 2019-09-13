@@ -4,7 +4,6 @@ function OneAudienceCordova() {
 }
 
 OneAudienceCordova.prototype.init = function (appKey, successCallback = function () { }, errorCallback = function () { }) {
-
     var devicePlatform = device.platform;
     var requestPermissions = true;
 
