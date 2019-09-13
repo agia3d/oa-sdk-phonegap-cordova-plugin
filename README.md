@@ -38,3 +38,6 @@ windows.plugin.oneaudiencecordova.init("YOUR-APP-KEY");
 
 
 
+Add a google play service that can get advertising id; sign up with Firebase (make sure the
+package name and app info match what is in your project sturcture); and get google-services.json and place in platforms/[your platform]/app. Make sure that the info in 
+that json file is the same as for your project (i.e. the package name needs to be the same).

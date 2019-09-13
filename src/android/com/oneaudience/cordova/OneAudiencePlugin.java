@@ -49,7 +49,7 @@ public class OneAudiencePlugin extends CordovaPlugin {
 
                     _callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
                 } catch (JSONException e) {
-                    _callbackContext.error("OneAudienceCordova: wrong parameter");
+                    _callbackContext.error("OneAudienceCordova: wrong function signature");
                 }
             }
 
