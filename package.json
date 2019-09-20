@@ -1,0 +1,22 @@
+{
+  "name": "oa-sdk-phonegap-cordova-plugin-a3d",
+  "version": "0.1.0",
+  "description": "OneAudience SDK for Cordova, modified by Agia3D",
+  "cordova": {
+    "id": "oa-sdk-phonegap-cordova-plugin-a3d",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agia3d/oa-sdk-phonegap-cordova-plugin.git"
+  },
+  "keywords": [
+    "cordova",
+    "oneaudience"
+  ],
+  "author": "",
+  "license": "Apache 2.0",
+  "homepage": "https://github.com/agia3d/oa-sdk-phonegap-cordova-plugin"
+}
